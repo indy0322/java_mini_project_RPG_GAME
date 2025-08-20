@@ -1,5 +1,6 @@
 package com.rpggame.aggregate;
 
+import com.rpggame.aggregate.items.Item;
 import com.rpggame.aggregate.skills.Skill;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class Player {
     private int maxMp;
     private int level;
     private ArrayList<Skill> skill = new ArrayList<>();
+    private ArrayList<Item> Item = new ArrayList<>();
 
     public Player() {
         this.hp = 100;
@@ -62,5 +64,17 @@ public class Player {
 
     public void deleteSkill(Skill skill) {
         this.skill.remove(skill);
+    }
+
+    public ArrayList<Item> getItem() {
+        return this.Item;
+    }
+
+    public void addItem(Item item) {
+        this.Item.add(item);
+    }
+
+    public void deleteItem(Item item) {
+        this.Item.remove(item);
     }
 }
