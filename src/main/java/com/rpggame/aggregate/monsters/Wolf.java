@@ -1,14 +1,6 @@
 package com.rpggame.aggregate.monsters;
 
-public class Wolf implements Monster {
+public class Wolf  {
 
-    @Override
-    public int damage() {
-        return 20;
-    }
 
-    @Override
-    public int heal() {
-        return 0;
-    }
 }

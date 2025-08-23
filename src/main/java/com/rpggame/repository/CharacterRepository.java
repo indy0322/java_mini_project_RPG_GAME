@@ -109,6 +109,16 @@ public class CharacterRepository {
 
         return returnList;
     }
+
+    public Character choiceCharacters(String id,String choiceChar) {
+        Character returnChar = null;
+        for(Character c : characters){
+            if(id.equals(c.getId()) && choiceChar.equals(c.getName())){
+                returnChar = c;
+            }
+        }
+        return returnChar;
+    }
 }
 
 

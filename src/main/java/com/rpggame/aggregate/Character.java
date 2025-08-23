@@ -17,6 +17,7 @@ public class Character implements Serializable {
     private int mp;
     private int maxMp;
     private int level;
+    private int deal;
     private ArrayList<Skill> skill = new ArrayList<>();
     private ArrayList<Item> Item = new ArrayList<>();
 
@@ -28,6 +29,7 @@ public class Character implements Serializable {
         this.maxHp = 100;
         this.mp = 100;
         this.maxMp = 100;
+        this.deal = 10;
         this.level = 1;
         this.name = name;
         this.id = id;
@@ -103,5 +105,13 @@ public class Character implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getDeal() {
+        return deal;
+    }
+
+    public void setDeal(int deal) {
+        this.deal = deal;
     }
 }
