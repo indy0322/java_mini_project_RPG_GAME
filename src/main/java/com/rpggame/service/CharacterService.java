@@ -24,7 +24,7 @@ public class CharacterService {
         }
     }
 
-    public void findAllCharacter(String id) {
+    public int findAllCharacter(String id) {
         ArrayList<Character> result = characterRepository.findAllCharacters(id);
 
         if(!result.isEmpty()){
@@ -32,6 +32,18 @@ public class CharacterService {
             for(Character c : result){
                 System.out.println("이름: " + c.getName() + " lv: " + c.getLevel());
             }
+            return 1;
+        }else{
+            System.out.println("존재하는 캐릭터가 없습니다. 캐릭터를 생성해주세요.");
+            return 0;
         }
+    }
+
+    public Character choiceCharacter(String id,String choiceChar) {
+        Character result = characterRepository.choiceCharacters(id,choiceChar);
+        if(result != null){
+            System.out.println(result.getName() + " 캐릭터로 플레이를 시작하겠습니다.");
+        }
+        return result;
     }
 }
