@@ -28,12 +28,14 @@ public class MonsterService {
         System.out.println(monster.getName() + " 이(가) 공격을 하였습니다.");
         System.out.println(character.getName() + " 이(가) " + monster.getDeal() + " 의 피해를 입었습니다.");
         character.setHp(character.getHp() - monster.getDeal());
+        System.out.println(character.getName() + " 의 남은 HP: " + character.getHp());
     }
 
     public void heal(Monster monster) {
+        System.out.println(monster.getName() + " 는(은) " + "10의 체력을 회복하였습니다.");
         if(monster.getHp() < monster.getMaxHp()) {
-            System.out.println(monster.getName() + " 는(은) " + "10의 체력을 회복하였습니다.");
             monster.setHp(monster.getHp() + 10);
+            System.out.println(monster.getName() + " 의 남은 HP: " + monster.getHp());
         }else{
             System.out.println(monster.getName() + " 는(은) " + "이미 완전히 회복하였습니다.");
         }

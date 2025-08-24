@@ -1,7 +1,5 @@
 package com.rpggame.aggregate;
 
-import com.rpggame.aggregate.items.Item;
-import com.rpggame.aggregate.skills.Skill;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -18,8 +16,6 @@ public class Character implements Serializable {
     private int maxMp;
     private int level;
     private int deal;
-    private ArrayList<Skill> skill = new ArrayList<>();
-    private ArrayList<Item> Item = new ArrayList<>();
 
     public Character() {
     }
@@ -29,7 +25,7 @@ public class Character implements Serializable {
         this.maxHp = 100;
         this.mp = 100;
         this.maxMp = 100;
-        this.deal = 10;
+        this.deal = 90;
         this.level = 1;
         this.name = name;
         this.id = id;
@@ -67,29 +63,6 @@ public class Character implements Serializable {
         this.hp = hp;
     }
 
-    public ArrayList<Skill> getSkill() {
-        return this.skill;
-    }
-
-    public void addSkill(Skill skill) {
-        this.skill.add(skill);
-    }
-
-    public void deleteSkill(Skill skill) {
-        this.skill.remove(skill);
-    }
-
-    public ArrayList<Item> getItem() {
-        return this.Item;
-    }
-
-    public void addItem(Item item) {
-        this.Item.add(item);
-    }
-
-    public void deleteItem(Item item) {
-        this.Item.remove(item);
-    }
 
     public String getName() {
         return name;
