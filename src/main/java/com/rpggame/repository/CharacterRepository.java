@@ -19,14 +19,14 @@ public class CharacterRepository {
             defaultCharacterList.add(new Character("char2","dumy"));
 
 
-            saveMembers(defaultCharacterList);
+            saveCharacters(defaultCharacterList);
         }
 
         loadCharacters();
 
     }
 
-    private void saveMembers(ArrayList<Character> defaultMemberList) {
+    private void saveCharacters(ArrayList<Character> defaultMemberList) {
         ObjectOutputStream oos = null;
 
         try {
@@ -118,6 +118,17 @@ public class CharacterRepository {
             }
         }
         return returnChar;
+    }
+
+    public int modifyCharacter(Character playChar) {
+        for(int i = 0;i < characters.size(); i++){
+            if(characters.get(i).getName() == playChar.getName()){
+                characters.set(i, playChar); // i번째(수정 할)회원을 교체
+                saveCharacters(characters); //교체 할 회원이 포함된 전체 회원으로 파일을 다시 덮어씌움
+                return 1;
+            }
+        }
+        return 0;
     }
 }
 
