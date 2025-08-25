@@ -14,7 +14,7 @@ public class Character implements Serializable {
     private int maxHp;
     private int mp;
     private int maxMp;
-    private int level;
+    private int tower;
     private int deal;
 
     public Character() {
@@ -25,8 +25,8 @@ public class Character implements Serializable {
         this.maxHp = 100;
         this.mp = 100;
         this.maxMp = 100;
-        this.deal = 90;
-        this.level = 1;
+        this.deal = 10;
+        this.tower = 1;
         this.name = name;
         this.id = id;
     }
@@ -47,12 +47,12 @@ public class Character implements Serializable {
         this.maxMp = maxMp;
     }
 
-    public int getLevel() {
-        return level;
+    public int getTower() {
+        return tower;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setTower(int tower) {
+        this.tower = tower;
     }
 
     public int getHp() {
@@ -63,6 +63,13 @@ public class Character implements Serializable {
         this.hp = hp;
     }
 
+    public int getMaxHp() {
+        return maxHp;
+    }
+
+    public void setMaxHp(int maxHp) {
+        this.maxHp = maxHp;
+    }
 
     public String getName() {
         return name;
