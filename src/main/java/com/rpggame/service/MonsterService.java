@@ -7,10 +7,10 @@ import java.util.Random;
 
 public class MonsterService {
 
-    public Monster getRandomMonster() {
+    public Monster getRandomMonster(int n) {
         Random random = new Random();
         Monster[] monsters = Monster.values();
-        int index = random.nextInt(monsters.length);
+        int index = random.nextInt(n);
         return monsters[index];
     }
 

@@ -17,7 +17,7 @@ public class Application {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int tower = 4;
+        int monsterNumber = 3;
 
         while (true) {
             System.out.println("==================== 환영합니다. ============================");
@@ -94,9 +94,9 @@ public class Application {
         System.out.println("탑을 공략하세요.");
 
         while(true) {
-            System.out.println("============== " + tower + "층 =================");
+            System.out.println("============== " + playChar.getTower() + "층 =================");
             System.out.println("몬스터를 조우했습니다.");
-            Monster monster = mos.getRandomMonster();
+            Monster monster = mos.getRandomMonster(monsterNumber);
 
             System.out.println(monster.getName() + " 이(가) 나타났습니다.");
             System.out.println(monster.toString());
@@ -112,9 +112,14 @@ public class Application {
                     cs.deal(monster, playChar);
                     if (monster.getHp() <= 0) {
                         System.out.println(monster.getName() + "이(가) 죽었습니다.");
-                        tower = tower + 1;
-                        if(tower % 5 == 0){
-                            cs.modifyLevel(playChar);
+
+                        if(playChar.getTower() > 10){
+                            System.out.println("타워를 공략하셨습니다.");
+                            System.out.println("게임이 종료됩니다.");
+                            return;
+                        }else{
+                            monsterNumber = monsterNumber + 1;
+                            cs.modifyStatus(playChar);
                         }
                         break;
                     } else {
@@ -122,6 +127,7 @@ public class Application {
                         if (playChar.getHp() <= 0) {
                             System.out.println(playChar.getName() + " 이(가) 죽었습니다.");
                             System.out.println("게임이 종료됩니다.");
+                            cs.deleteCharacter(playChar);
                             return;
                         }
                     }

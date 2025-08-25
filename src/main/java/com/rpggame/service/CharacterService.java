@@ -31,7 +31,7 @@ public class CharacterService {
         if(!result.isEmpty()){
             System.out.println("캐릭터 목록 확인: ");
             for(Character c : result){
-                System.out.println("이름: " + c.getName() + " lv: " + c.getLevel());
+                System.out.println("이름: " + c.getName() + " 타워 층수: " + c.getTower());
             }
             return 1;
         }else{
@@ -68,14 +68,21 @@ public class CharacterService {
         }
     }
 
-    public void modifyLevel(Character playChar) {
-        playChar.setLevel(playChar.getLevel() + 1);
-        int result = characterRepository.modifyCharacter(playChar);
+    public void modifyStatus(Character character) {
+        character.setTower(character.getTower() + 1);
+        character.setMaxHp(character.getMaxHp() + 10);
+        character.setMaxMp(character.getMaxMp() + 10);
+        character.setHp(character.getMaxHp());
+        character.setMp(character.getMaxMp());
+        int result = characterRepository.modifyCharacter(character);
         if(result == 1){
-            System.out.println(playChar.getName() + " 의 레벨이 1증가했습니다.");
+            System.out.println(character.getName() + " 의 HP, MP가 10증가 했습니다.");
         }else{
-            System.out.println(playChar.getName() + " 이(가) 레벨업 하는데, 실패했습니다.");
+            System.out.println(character.getName() + " 의 HP, MP가 증가하는데, 실패했습니다.");
         }
+    }
+
+    public void deleteCharacter(Character playChar) {
 
     }
 }

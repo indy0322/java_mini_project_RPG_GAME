@@ -5,7 +5,9 @@ import java.util.Random;
 public enum Monster {
     SLIME("슬라임",100,10),
     SPIDER("거미",80,15),
-    WOLF("늑대",150,15);
+    WOLF("늑대",100,10),
+    LIZARD("도마뱀",150,15),
+
 
     private String name;
     private int hp;
